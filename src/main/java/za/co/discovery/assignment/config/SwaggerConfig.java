@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
     private ApiInfo getApiInfo() {
 
-        final Contact contact = new Contact("Jaco Van Der Merwe", WEBSITE_URL, "jvandermerwe@jhb.dvt.co.za");
+        final Contact contact = new Contact("Freddy Vincent SOP MBOUDJIEKA", WEBSITE_URL, "sopfreddy@gmail.com");
 
         return new ApiInfo(
                 "Interstellar Transport System",

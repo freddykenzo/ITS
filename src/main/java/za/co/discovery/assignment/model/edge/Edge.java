@@ -52,4 +52,15 @@ public class Edge {
 	@Column(name = "traffic_delay")
 	@ApiModelProperty(required = false, value = "The Traffic delay between 2 planets")
 	private Float trafficDelay;
+	
+	
+	// Get the neighbourin planet of the edge
+	public Planet getNeighbourPlanet(Planet planet) {
+		
+		if(this.source.equals(planet)) {
+			return destination;
+		}
+		
+		return source;
+	}
 }
