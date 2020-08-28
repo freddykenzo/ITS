@@ -16,6 +16,8 @@ public enum ResponseCode {
     CREATED(Status.SUCCESS, 0, null, HttpStatus.CREATED),
     
     NOT_FOUND(Status.ERROR, 404, "The requested resource cannot be found", HttpStatus.NOT_FOUND),
+    
+    PLANET_NOT_FOUND(Status.ERROR, 404, "The planet cannot be found", HttpStatus.NOT_FOUND),
 
     ;
 

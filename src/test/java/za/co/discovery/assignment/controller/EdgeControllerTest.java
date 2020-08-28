@@ -34,7 +34,7 @@ public class EdgeControllerTest extends ControllerBaseTest {
 	}
 	
 	@Test
-    public void whenfetchingAllEdges_thenReturnStatus200() throws Exception {
+    public void givenExistingEdges_whenfetchingAllEdges_thenReturnStatus200() throws Exception {
 
         when(edgeService.getAllEdges()).thenReturn(successResponse);
 

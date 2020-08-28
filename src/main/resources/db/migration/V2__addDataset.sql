@@ -1,6 +1,6 @@
     
     
-INSERT INTO planet(planet_id,planet_name) VALUES ('A','Earth'), 
+INSERT INTO PLANET(planet_id,planet_name) VALUES ('A','Earth'), 
 ('B','Moon'),
 ('C','Jupiter'),
 ('D','Venus'),
@@ -40,7 +40,7 @@ INSERT INTO planet(planet_id,planet_name) VALUES ('A','Earth'),
 ('L''','Genesis');
 
 
-INSERT INTO edge(id,source,destination,distance, traffic_delay) VALUES
+INSERT INTO EDGE(id,source,destination,distance, traffic_delay) VALUES
  (1,'A','B',0.44,0.30),
 (2,'A','C',1.89,0.90),
 (3,'A','D',0.1,0.10),
