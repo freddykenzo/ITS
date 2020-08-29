@@ -51,3 +51,12 @@ The Swagger Documentation of the application will be accessible from this Url: h
 Interstellar Transport System (ITS) is an application that allows us to find the shortest path between 2 nodes/planets.
 It uses Dijkstra's algorithm to determine the shortest path between the nodes.
 For more info about Dijkstra's algorithm, you can visit this link: https://www.youtube.com/watch?v=gdmfOwyQlcI
+
+The frontend is a simple Angular project, using Angular version 9 and Typescript 3.9.5.
+
+The server application or backend is written in Java 8 with Springboot 2.
+It uses an in-memory H2 database and Flyway to run some script on startup to setup/create table and insert data.
+It also exposes a set of RESTful API which can be accessed, when the application is running locally, from the link http://localhost:8080/swagger-ui.html
+
+It has some plugins like `maven-surefire-plugin`, `jacoco-maven-plugin` which are use by Sonarqube to check the code quality.
+From a Sonarqube code analysis report, the code coverage (number of lines covered by unit test) is currently 80.3%.
