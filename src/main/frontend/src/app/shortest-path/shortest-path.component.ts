@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShortestPathService } from './shortest-path.service';
 import { PlanetListResponse, Planet, ShortestPathRequest, BaseResponse } from '../shared/model/interfaces';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-shortest-path',
@@ -32,6 +33,7 @@ export class ShortestPathComponent implements OnInit {
     }, error => {
       alert(error.response.message)
     })
+    console.log((document.getElementById('submit') as HTMLButtonElement).disabled)
   }
 
   public onFormSubmit(): void {
