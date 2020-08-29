@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShortestPathService } from './shortest-path.service';
 import { PlanetListResponse, Planet, ShortestPathRequest, BaseResponse } from '../shared/model/interfaces';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shortest-path',
@@ -21,8 +21,8 @@ export class ShortestPathComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder, private shortestPathService: ShortestPathService) {
     this.form = this._formBuilder.group({
-      source: '',
-      destination: ''
+      source: ['', Validators.compose([Validators.required])],
+      destination: ['', Validators.compose([Validators.required])]
     });
   }
 
@@ -36,7 +36,7 @@ export class ShortestPathComponent implements OnInit {
 
   public onFormSubmit(): void {
 
-    this.path = '';
+    this.reset();
 
     const request: ShortestPathRequest = {
       source: this.form.value.source,
@@ -62,4 +62,7 @@ export class ShortestPathComponent implements OnInit {
     return this.planets.find(({planetId}) => planetId === id);
   }
 
+  public reset() {
+    this.path = '';
+  }
 }

@@ -7,7 +7,7 @@ public interface PlanetService {
 	/**
 	 * @return list of all planets
 	 */
-	public PlanetListResponse getAllPlanets();
+	PlanetListResponse getAllPlanets();
 	
 	/**
 	 * 
@@ -15,5 +15,5 @@ public interface PlanetService {
 	 * @param planetDestination
 	 * @return path from planetSource to planetDestination
 	 */
-	public PlanetListResponse getShortestPath(String planetSource, String planetDestination);
+	PlanetListResponse getShortestPath(String planetSource, String planetDestination);
 }

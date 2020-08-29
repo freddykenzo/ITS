@@ -1,4 +1,4 @@
-package za.co.discovery.assignment.dao;
+package za.co.discovery.assignment.repository;
 
 import java.util.Set;
 

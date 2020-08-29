@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
-import za.co.discovery.assignment.dao.EdgeRepository;
 import za.co.discovery.assignment.model.edge.Edge;
 import za.co.discovery.assignment.model.response.EdgeListResponse;
 import za.co.discovery.assignment.model.response.ResponseCode;
+import za.co.discovery.assignment.repository.EdgeRepository;
 import za.co.discovery.assignment.service.edge.EdgeService;
 
 @Slf4j

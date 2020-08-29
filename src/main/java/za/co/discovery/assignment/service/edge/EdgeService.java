@@ -7,5 +7,5 @@ public interface EdgeService {
 	/**
 	 * @return list of all Edges
 	 */
-	public EdgeListResponse getAllEdges();
+	EdgeListResponse getAllEdges();
 }

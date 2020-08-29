@@ -13,4 +13,8 @@ class ItsApplicationTest {
 		assertTrue(true);
 	}
 
+	@Test
+	void main() {
+		ItsApplication.main(new String[] {});
+	}
 }

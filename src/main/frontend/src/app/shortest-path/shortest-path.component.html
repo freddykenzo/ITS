@@ -1,5 +1,13 @@
 <div class="container">
 
+    <br>
+
+    <div class="row">
+        <h1>h1>Interstellar Transport System (ITS)</h1>
+    </div>
+
+    <br>
+
     <div class="row">
         <p>
             <img src="assets/images/interstellar.png">
@@ -25,10 +33,6 @@
     <br>
     <br>
 
-
-
-    <br>
-
     <div class="row">
         <div class="col-xs-12">
             <form [formGroup]="form" (submit)="onFormSubmit()">
@@ -44,20 +48,20 @@
                 <div class="row">
                     <div class="col-sm-3 form-group">
                         <label for="source">Source</label>
-                        <select formControlName="source" id="source" class="form-control">
-                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}}</option>
+                        <select formControlName="source" id="source" class="form-control" (change)="reset()">
+                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}} ({{planet.planetId}})</option>
                         </select>
                     </div>
 
                     <div class="col-sm-3 form-group">
                         <label for="destination">Destination</label>
-                        <select id="destination" formControlName="destination" class="form-control">
-                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}}</option>
+                        <select id="destination" formControlName="destination" class="form-control" (change)="reset()">
+                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}} ({{planet.planetId}})</option>
                         </select>
                     </div>
                     <div class="col-sm-2 form-group">
                         <label style="color: white;" for="submit">Submit</label>
-                        <button class="btn btn-primary form-control" id="submit" type="submit">Submit</button>
+                        <button [disabled]='!form.valid' class="btn btn-primary form-control" id="submit" type="submit">Submit</button>
                     </div>
                 </div>
             </form>

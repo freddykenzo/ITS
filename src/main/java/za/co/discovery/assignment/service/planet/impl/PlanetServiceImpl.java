@@ -12,12 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
-import za.co.discovery.assignment.dao.EdgeRepository;
-import za.co.discovery.assignment.dao.PlanetRepository;
 import za.co.discovery.assignment.model.edge.Edge;
 import za.co.discovery.assignment.model.planet.Planet;
 import za.co.discovery.assignment.model.response.PlanetListResponse;
 import za.co.discovery.assignment.model.response.ResponseCode;
+import za.co.discovery.assignment.repository.EdgeRepository;
+import za.co.discovery.assignment.repository.PlanetRepository;
 import za.co.discovery.assignment.service.planet.PlanetService;
 
 @Service
@@ -60,7 +60,7 @@ public class PlanetServiceImpl implements PlanetService {
 	}
  
 	/**
-	 * For more input amout Dijkstra's algorithm, please visit this link
+	 * For more input about Dijkstra's algorithm, please visit this link
 	 * https://www.youtube.com/watch?v=gdmfOwyQlcI
 	 * @param source
 	 * @param destination
@@ -72,6 +72,7 @@ public class PlanetServiceImpl implements PlanetService {
 		Optional<Edge> optEdgeSource = edges.stream().filter(t -> t.getSource().getPlanetId().equals(source) || t.getDestination().getPlanetId().equals(source)).findFirst();
 
 		if (!optEdgeSource.isPresent()) {
+			// Maybe there is a planed that is not linked to any other planet
 			return Collections.emptyList();
 		}
 		
