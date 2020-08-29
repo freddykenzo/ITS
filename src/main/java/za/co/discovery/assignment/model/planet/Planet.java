@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "planet")
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = { "distanceFromSource", "visited" })
+@EqualsAndHashCode(exclude = { "distanceFromSource", "visited", "parentPlanet" })
 @AllArgsConstructor
 @ApiModel(value = "Planet", description = "A planet in the Interstellar Transport System")
 public class Planet implements Comparable<Planet> {

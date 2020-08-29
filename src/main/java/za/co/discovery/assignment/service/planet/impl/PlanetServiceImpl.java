@@ -69,14 +69,14 @@ public class PlanetServiceImpl implements PlanetService {
 	 */
 	private List<Planet> calculateShortestDistances(String source, String destination, List<Edge> edges) {
 
-		Optional<Edge> optEdgeSource = edges.stream().filter(t -> t.getSource().getPlanetId().equals(source)).findFirst();
+		Optional<Edge> optEdgeSource = edges.stream().filter(t -> t.getSource().getPlanetId().equals(source) || t.getDestination().getPlanetId().equals(source)).findFirst();
 
 		if (!optEdgeSource.isPresent()) {
 			return Collections.emptyList();
 		}
 		
 		//Set distance from source to 0 and visited as true for initial point
-		Planet planetSource = optEdgeSource.get().getSource();
+		Planet planetSource = optEdgeSource.get().getSource().getPlanetId().equals(source) ? optEdgeSource.get().getSource() : optEdgeSource.get().getDestination();
 		
 		planetSource.setDistanceFromSource(0F);
 		planetSource.setVisited(Boolean.TRUE);
@@ -99,7 +99,7 @@ public class PlanetServiceImpl implements PlanetService {
 			Set<Edge> currentPlanetEdges = findPlanetEdges(edges, currentPlanet);
 
 			for (Edge currentEdge : currentPlanetEdges) {
-				Planet neighbourPlanet = currentEdge.getDestination();
+				Planet neighbourPlanet = currentEdge.getDestination().equals(currentPlanet) ? currentEdge.getSource() : currentEdge.getDestination();
 
 				// If a planet has not been visited, calculate the distance to the source and only update if the value is less that the current distance to source
 				if (!neighbourPlanet.isVisited()) {
@@ -130,7 +130,7 @@ public class PlanetServiceImpl implements PlanetService {
 	 * @return set of edges with source planet same as requested planet
 	 */
 	private Set<Edge> findPlanetEdges(List<Edge> edges, Planet planet) {
-		return edges.stream().filter(s -> s.getSource().equals(planet)).collect(Collectors.toSet());
+		return edges.stream().filter(s -> s.getSource().equals(planet) || s.getDestination().equals(planet)).collect(Collectors.toSet());
 	}
 
 	
