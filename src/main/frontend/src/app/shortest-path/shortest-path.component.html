@@ -1,0 +1,82 @@
+<div class="container">
+
+    <br>
+
+    <div class="row">
+        <h1>Interstellar Transport System (ITS)</h1>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <p>
+            <img src="assets/images/interstellar.png">
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+        <p>
+            <span>
+        The above graph represents an interstellar transport system used by Earth's inhabitants in the year 2145.
+        <br>
+        This system will allow them to find the shortest path from point "A", being Earth, through the galaxy to any of
+        the planets represented by the other nodes.
+        <br>
+        The system also works from any source to any destination.
+      </span>
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form [formGroup]="form" (submit)="onFormSubmit()">
+                <div class="row">
+                    <p>
+                        <span>
+              Select the source and destination planets from the dropdown below and click the submit button to get the
+              shortest path.
+            </span>
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <label for="source">Source</label>
+                        <select formControlName="source" id="source" class="form-control" (change)="reset()">
+                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}} ({{planet.planetId}})</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" formControlName="destination" class="form-control" (change)="reset()">
+                          <option *ngFor="let planet of planets" [value]="planet.planetId">{{planet.planetName}} ({{planet.planetId}})</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2 form-group">
+                        <label style="color: white;" for="submit">Submit</label>
+                        <button [disabled]='!form.valid' class="btn btn-primary form-control" id="submit" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div *ngIf="path" class="row">
+    <p>
+        The path from {{source.planetName}} ({{source.planetId}}) to {{destination.planetName}} ({{destination.planetId}}) is :
+        <br>
+
+        <span>{{path}}</span>
+    </p>
+
+</div>
